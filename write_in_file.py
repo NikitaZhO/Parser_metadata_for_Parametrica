@@ -27,6 +27,8 @@ class WriteInFile:
 
         try:
             rule = values['rule']
+            if 'Match' in str(rule):
+                rule = 'регулярное выражение - ' + rule
             if rule is not None:
                 if self.rule_field == '1':
                     data_for_file += f'{" " * space}rule - {rule}\n'
