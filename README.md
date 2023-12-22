@@ -9,8 +9,8 @@ Parser metadata for Parametrica
 
 Для работы с данной программой необходимо выполнить следующие действия:
 
-1. Скопировать данный репозиторий себе на компьютер, сделать можно при помощи команды 
-    '$ git clone https://github.com/NikitaZhO/Parser_metadata_for_Parametrica.git`
+1. Скопировать данный репозиторий себе на компьютер, сделать можно при помощи команды
+    `$ git clone https://github.com/NikitaZhO/Parser_metadata_for_Parametrica.git `
 2. Установить необходимые библиотеки
     `$ pip freeze -r requirements.txt`
 3. Для запуска используется файл `main.py`
