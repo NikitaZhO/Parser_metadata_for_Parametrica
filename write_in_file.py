@@ -64,5 +64,5 @@ class WriteInFile:
         self.write_in_file(a)
 
     def write_in_file(self, str_data):
-        with open('metadata.txt', 'a') as file:
+        with open('metadata.txt', 'a', encoding='utf-8') as file:
             file.write(f'{str_data}\n')

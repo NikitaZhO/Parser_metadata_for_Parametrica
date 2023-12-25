@@ -13,7 +13,7 @@ def main():
 
     write_in_file = WriteInFile(write_hint, rule_field)
 
-    with open('metadata.txt', 'w') as file:
+    with open('metadata.txt', 'w', encoding='utf-8') as file:
         file.write('')
 
     # Проверяем верхний уровень dict, если есть вложенности запускаем цикл
