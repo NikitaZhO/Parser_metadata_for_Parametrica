@@ -16,3 +16,21 @@ def parse_type(data_dict, space, secret_field, write_in_file):
             write_in_file.write_data(value, space)
 
             parse_type(data_dict[variable]['type'], space, secret_field, write_in_file)
+
+
+def replace_word(data):
+    ignor_data = {
+        'bool': 'Логическая',
+        'str': 'Строковая',
+        'False': '',
+        'int': 'Натуральные числа',
+        'Max': 'Максимальное',
+        'Min': 'Минимальное',
+        'InRange': 'Диапазон',
+    }
+
+    for key, value in ignor_data.items():
+        if key in data:
+            data = data.replace(key, value)
+
+    return data

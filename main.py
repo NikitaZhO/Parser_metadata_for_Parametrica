@@ -7,9 +7,9 @@ from write_in_file import WriteInFile
 def main():
     metadata_config = config.__metadata__()
 
-    write_hint = default_varieble.write_hint
-    secret_field = default_varieble.secret_field
-    rule_field = default_varieble.rule_field
+    write_hint = str(default_varieble.write_hint)
+    secret_field = str(default_varieble.secret_field)
+    rule_field = str(default_varieble.rule_field)
 
     write_in_file = WriteInFile(write_hint, rule_field)
 
