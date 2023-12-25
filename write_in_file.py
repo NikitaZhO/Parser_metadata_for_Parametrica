@@ -7,13 +7,32 @@ class WriteInFile:
         self.rule_field = rule_field
 
     def write_data(self, values, space):
+        ignor_data = {
+            'bool': 'Логическая',
+            'str': 'Строковая',
+            'False': '',
+            'int': 'Натуральные числа',
+            'Max': 'Максимальное',
+            'Min': 'Минимальное',
+            'InRange': 'Диапазон',
+        }
+
         label = values['label']
-        secret = values['secret']
-        data_for_file = f'{" " * space}label - {label}\n' \
-            f'{" " * space}secret - {secret}\n'
+        # secret = values['secret']
+        if values['secret'] is False:
+            data_for_file = f'{" " * space}label - {label}\n' \
+                f'{" " * space}secret - Не секретное поле\n'
+        else:
+            data_for_file = f'{" " * space}label - {label}\n' \
+                            f'{" " * space}secret - Секретное поле\n'
 
         data_type = values['type']
         if str(type(data_type)) != "<class 'dict'>":
+
+            for key, value in ignor_data.items():
+                if key in data_type:
+                    data_type = data_type.replace(key, value)
+
             data_for_file += f'{" " * space}type - {data_type}\n'
         else:
             data_for_file += f'{" " * space}type - Словарь\n'
@@ -45,18 +64,5 @@ class WriteInFile:
         self.write_in_file(a)
 
     def write_in_file(self, str_data):
-        # ignor_data = {
-        #     'bool': 'Логическая',
-        #     'str': 'Строковая',
-        #     'False': '',
-        #     'int': 'Натуральные числа',
-        #     'Max': 'Максимальное',
-        #     'Min': 'Минимальное',
-        #     'InRange': 'Диапазон',
-        # }
-        # for key, value in ignor_data.items():
-        #     if key in str_data:
-        #         str_data = str_data.replace(key, value)
-
         with open('metadata.txt', 'a') as file:
             file.write(f'{str_data}\n')
