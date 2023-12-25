@@ -45,5 +45,18 @@ class WriteInFile:
         self.write_in_file(a)
 
     def write_in_file(self, str_data):
+        ignor_data = {
+            'bool': 'Логическая',
+            'str': 'Строковая',
+            'False': '',
+            'int': 'Натуральные числа',
+            'Max': 'Максимальное',
+            'Min': 'Минимальное',
+            'InRange': 'Диапазон',
+        }
+        for key, value in ignor_data.items():
+            if key in str_data:
+                str_data = str_data.replace(key, value)
+
         with open('metadata.txt', 'a') as file:
             file.write(f'{str_data}\n')
