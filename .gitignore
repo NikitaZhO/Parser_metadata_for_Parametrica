@@ -1,4 +1,4 @@
 metadata.txt
 settings.yaml
 .venv
-./__pycache__
+__pycache__
